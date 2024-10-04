@@ -20,6 +20,29 @@ All notable changes to this project will be documented in this file. See [standa
   * dependencies
     * @puppeteer/browsers bumped from 1.5.1 to 1.6.0
 
+## [23.5.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-core-v23.4.1...puppeteer-core-v23.5.0) (2024-10-02)
+
+
+### Features
+
+* roll to Firefox 131.0 ([#13148](https://github.com/puppeteer/puppeteer/issues/13148)) ([b5b8601](https://github.com/puppeteer/puppeteer/commit/b5b8601a7660b50c16e04f8683f38e6e35f5e2e8))
+
+
+### Bug Fixes
+
+* handle requestservedfromcache during interception ([#13134](https://github.com/puppeteer/puppeteer/issues/13134)) ([3ad2e45](https://github.com/puppeteer/puppeteer/commit/3ad2e45c295083de6fc72a5041138c620615b755))
+* roll to Chrome 129.0.6668.89 ([#13150](https://github.com/puppeteer/puppeteer/issues/13150)) ([cab123e](https://github.com/puppeteer/puppeteer/commit/cab123e68ee2e50a66da434346ec39afe000b2f7))
+* **webdriver:** dispose child browsing contexts ([#13137](https://github.com/puppeteer/puppeteer/issues/13137)) ([378762d](https://github.com/puppeteer/puppeteer/commit/378762d6e170040901f5c3ccb66968db37f44051))
+
+## [23.4.1](https://github.com/puppeteer/puppeteer/compare/puppeteer-core-v23.4.0...puppeteer-core-v23.4.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* roll to Chrome 129.0.6668.70 ([#13125](https://github.com/puppeteer/puppeteer/issues/13125)) ([dfd2e64](https://github.com/puppeteer/puppeteer/commit/dfd2e64802d6b2948cb99e5608f707b0013f847b))
+* show browser in error ([#13119](https://github.com/puppeteer/puppeteer/issues/13119)) ([98cad4e](https://github.com/puppeteer/puppeteer/commit/98cad4eb1f88585ea0c222d9c19a3eb3de3c78fd))
+* **webdriver:** convert console method to type ([#13120](https://github.com/puppeteer/puppeteer/issues/13120)) ([429319e](https://github.com/puppeteer/puppeteer/commit/429319e6fe562a9163463a374574533575beab9a))
+
 ## [23.4.0](https://github.com/puppeteer/puppeteer/compare/puppeteer-core-v23.3.1...puppeteer-core-v23.4.0) (2024-09-18)
 
 
