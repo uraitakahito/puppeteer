@@ -12,10 +12,10 @@
 import {existsSync, mkdirSync, copyFileSync, rmSync} from 'fs';
 import {normalize, join, dirname} from 'path';
 
+import {BrowserPlatform, install} from '@puppeteer/browsers';
+
 import {downloadPaths} from '../lib/esm/browser-data/browser-data.js';
 import * as versions from '../test/build/versions.js';
-
-import {BrowserPlatform, install} from '@puppeteer/browsers';
 
 function getBrowser(str) {
   const regex = /test(.+)BuildId/;
@@ -42,8 +42,8 @@ function mockFirefoxNightly(browser, platform, targetPath) {
       'server',
       ...downloadPaths.firefox(
         'linux',
-        versions.testFirefoxBuildId.split('_').at(-1)
-      )
+        versions.testFirefoxBuildId.split('_').at(-1),
+      ),
     );
 
     if (existsSync(nightlyTarget)) {
@@ -66,7 +66,7 @@ for (const version of Object.keys(versions)) {
     const targetPath = join(
       cacheDir,
       'server',
-      ...downloadPaths[browser](platform, buildId)
+      ...downloadPaths[browser](platform, buildId),
     );
 
     if (existsSync(targetPath)) {

@@ -1,7 +1,10 @@
-FROM node:20@sha256:fffa89e023a3351904c04284029105d9e2ac7020886d683775a298569591e5bb
+FROM node:22@sha256:5c76d05034644fa8ecc9c2aa84e0a83cd981d0ef13af5455b87b9adf5b216561
 
-# Configure default locale (important for chrome-headless-shell).
-ENV LANG en_US.UTF-8
+ENV \
+    # Configure default locale (important for chrome-headless-shell).
+    LANG=en_US.UTF-8 \
+    # UID of the non-root user 'pptruser'
+    PPTRUSER_UID=10042
 
 # Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
 # Note: this installs the necessary libs to make the bundled version of Chrome that Puppeteer
@@ -11,9 +14,9 @@ RUN apt-get update \
     fonts-kacst fonts-freefont-ttf dbus dbus-x11
 
 # Add pptruser.
-RUN groupadd -r pptruser && useradd -rm -g pptruser -G audio,video pptruser
+RUN groupadd -r pptruser && useradd -u $PPTRUSER_UID -rm -g pptruser -G audio,video pptruser
 
-USER pptruser
+USER $PPTRUSER_UID
 
 WORKDIR /home/pptruser
 
@@ -29,6 +32,6 @@ RUN npm i ./puppeteer-browsers-latest.tgz ./puppeteer-core-latest.tgz ./puppetee
 USER root
 RUN npx puppeteer browsers install chrome --install-deps
 
-USER pptruser
+USER $PPTRUSER_UID
 # Generate THIRD_PARTY_NOTICES using chrome --credits.
 RUN node -e "require('child_process').execSync(require('puppeteer').executablePath() + ' --credits', {stdio: 'inherit'})" > THIRD_PARTY_NOTICES

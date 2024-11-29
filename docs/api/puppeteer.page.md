@@ -438,9 +438,15 @@ The full HTML contents of the page, including the DOCTYPE.
 
 </td><td>
 
+`deprecated`
+
 </td><td>
 
 If no URLs are specified, this method returns cookies for the current page URL. If URLs are specified, only cookies for those URLs are returned.
+
+**Deprecated:**
+
+Page-level cookie API is deprecated. Use [Browser.cookies()](./puppeteer.browser.cookies.md) or [BrowserContext.cookies()](./puppeteer.browsercontext.cookies.md) instead.
 
 </td></tr>
 <tr><td>
@@ -477,7 +483,13 @@ By default, `page.pdf()` generates a pdf with modified colors for printing. Use 
 
 </td><td>
 
+`deprecated`
+
 </td><td>
+
+**Deprecated:**
+
+Page-level cookie API is deprecated. Use [Browser.deleteCookie()](./puppeteer.browser.deletecookie.md) or [BrowserContext.deleteCookie()](./puppeteer.browsercontext.deletecookie.md) instead.
 
 </td></tr>
 <tr><td>
@@ -662,6 +674,17 @@ Shortcut for [page.mainFrame().focus(selector)](./puppeteer.frame.focus.md).
 </td><td>
 
 An array of all frames attached to the page.
+
+</td></tr>
+<tr><td>
+
+<span id="getdefaultnavigationtimeout">[getDefaultNavigationTimeout()](./puppeteer.page.getdefaultnavigationtimeout.md)</span>
+
+</td><td>
+
+</td><td>
+
+Maximum navigation time in milliseconds.
 
 </td></tr>
 <tr><td>
@@ -1006,7 +1029,13 @@ Set the content of the page.
 
 </td><td>
 
+`deprecated`
+
 </td><td>
+
+**Deprecated:**
+
+Page-level cookie API is deprecated. Use [Browser.setCookie()](./puppeteer.browser.setcookie.md) or [BrowserContext.setCookie()](./puppeteer.browsercontext.setcookie.md) instead.
 
 </td></tr>
 <tr><td>
@@ -1246,7 +1275,7 @@ Shortcut for [page.mainFrame().url()](./puppeteer.frame.url.md).
 
 Returns the current page viewport settings without checking the actual page viewport.
 
-This is either the viewport set with the previous [Page.setViewport()](./puppeteer.page.setviewport.md) call or the default viewport set via [BrowserConnectOptions.defaultViewport](./puppeteer.browserconnectoptions.md#defaultviewport).
+This is either the viewport set with the previous [Page.setViewport()](./puppeteer.page.setviewport.md) call or the default viewport set via [ConnectOptions.defaultViewport](./puppeteer.connectoptions.md#defaultviewport).
 
 </td></tr>
 <tr><td>

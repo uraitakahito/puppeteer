@@ -28,6 +28,13 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
+    "testIdPattern": "[download.spec] *",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["webDriverBiDi"],
+    "expectations": ["SKIP"],
+    "comment": "This feature is not supported by WebDriver BiDi"
+  },
+  {
     "testIdPattern": "[drag-and-drop.spec] *",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox"],
@@ -210,6 +217,13 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
+    "testIdPattern": "[browsercontext-cookies.spec] *",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["SKIP"],
+    "comment": "Firefox CDP support is deprecated"
+  },
+  {
     "testIdPattern": "[CDPSession.spec] Target.createCDPSession *",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
@@ -242,13 +256,6 @@
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
     "comment": "The test relies on the default page partition key do not contain the source origin. This is not the case for Firefox."
-  },
-  {
-    "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set cookie with all available properties",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox"],
-    "expectations": ["FAIL"],
-    "comment": "Chromium-specific test. The sourceScheme property is chromium-specific."
   },
   {
     "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set secure same-site cookies from a frame",
@@ -305,6 +312,13 @@
     "parameters": ["firefox"],
     "expectations": ["SKIP"],
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[download.spec] *",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["SKIP"],
+    "comment": "CDP support in Firefox is deprecated and will not get new features"
   },
   {
     "testIdPattern": "[drag-and-drop.spec] *",
@@ -482,6 +496,13 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
+    "testIdPattern": "[navigation.spec] navigation Page.goto should work when navigating to a URL with a client redirect",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "https://github.com/puppeteer/puppeteer/issues/12929"
+  },
+  {
     "testIdPattern": "[network.spec] network Network Events Page.Events.RequestServedFromCache *",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
@@ -568,6 +589,13 @@
     "parameters": ["chrome-headless-shell"],
     "expectations": ["FAIL"],
     "comment": "chrome-headless-shell does not have a PDF viewer"
+  },
+  {
+    "testIdPattern": "[oopif.spec] OOPIF should retrieve body for OOPIF document requests",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "Response body retrieval not yet supported in WebDriver BiDi implementations"
   },
   {
     "testIdPattern": "[page.spec] Page Page.addScriptTag should throw when added with content to the CSP page",
@@ -870,6 +898,13 @@
     "comment": "times out flakily"
   },
   {
+    "testIdPattern": "[backendNodeId.spec] ElementHandle.backendNodeId should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "CDP-specific"
+  },
+  {
     "testIdPattern": "[bfcache.spec] BFCache can call a function exposed on a page restored from bfcache",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
@@ -896,6 +931,13 @@
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[browsercontext-cookies.spec] BrowserContext cookies BrowserContext.setCookie should set cookie with a partition key",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "Needs CHIPS to be enabled. See https://bugzilla.mozilla.org/show_bug.cgi?id=1931488"
   },
   {
     "testIdPattern": "[browsercontext.spec] BrowserContext BrowserContext.overridePermissions should deny permission when not listed",
@@ -1122,6 +1164,13 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
+    "testIdPattern": "[cookies.spec] Cookie specs Page.cookies should not get cookies from subdomain if the cookie is for top-level domain",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "Deprecated"
+  },
+  {
     "testIdPattern": "[cookies.spec] Cookie specs Page.deleteCookie should delete cookie",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
@@ -1190,6 +1239,13 @@
     "parameters": ["cdp", "firefox"],
     "expectations": ["FAIL"],
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set cookie with all available properties",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "Firefox CDP does not support cookie settings"
   },
   {
     "testIdPattern": "[cookies.spec] Cookie specs Page.setCookie should set cookie with reasonable defaults",
@@ -1304,6 +1360,55 @@
   },
   {
     "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.isIntersectingViewport should work with svg elements",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchEnd should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchMove should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchMove should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchMove should work with a pre-existing Touch",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchMove should work with a pre-existing Touch",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchStart should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["cdp", "firefox"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[elementhandle.spec] ElementHandle specs ElementHandle.touchStart should work with the returned Touch",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
     "expectations": ["FAIL"],
@@ -1558,13 +1663,6 @@
     "testIdPattern": "[frame.spec] Frame specs Frame Management should support lazy frames",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
-    "expectations": ["FAIL"],
-    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
-  },
-  {
-    "testIdPattern": "[frame.spec] Frame specs Frame Management should support lazy frames",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
@@ -2282,13 +2380,6 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
-    "testIdPattern": "[network.spec] network Network Events Page.Events.RequestServedFromCache for stylesheet",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Needs Firefox support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
-  },
-  {
     "testIdPattern": "[network.spec] network Network Events Page.Events.Response",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
@@ -2485,13 +2576,6 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
-    "testIdPattern": "[network.spec] network Response.fromCache should work for stylesheet",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Needs Firefox support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
-  },
-  {
     "testIdPattern": "[network.spec] network Response.fromServiceWorker Response.fromServiceWorker",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "firefox"],
@@ -2590,18 +2674,11 @@
     "comment": "Firefox does not support multiple sessions in BiDi."
   },
   {
-    "testIdPattern": "[oopif.spec] OOPIF should support lazy OOP frames",
+    "testIdPattern": "[oopif.spec] OOPIF should retrieve body for OOPIF document requests",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL", "TIMEOUT"],
-    "comment": "https://bugzilla.mozilla.org/show_bug.cgi?id=1878166"
-  },
-  {
-    "testIdPattern": "[oopif.spec] OOPIF should support wait for navigation for transitions from local to OOPIF",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["cdp", "chrome"],
     "expectations": ["SKIP"],
-    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+    "comment": "Chrome-specific test (uses DNS mapping); does not work with Firefox."
   },
   {
     "testIdPattern": "[oopif.spec] OOPIF should wait for inner OOPIFs",
@@ -2924,13 +3001,6 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
-    "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Page.setRequestInterception should cache stylesheet if cache enabled",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Needs Firefox support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
-  },
-  {
     "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Page.setRequestInterception should work with file URLs",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
@@ -2943,13 +3013,6 @@
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
     "comment": "Test requires CDP"
-  },
-  {
-    "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Request.continue should redirect in a way non-observable to page",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Firefox needs support for the url parameter of continueRequest"
   },
   {
     "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Request.resourceType should work for document type",
@@ -2973,13 +3036,6 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
-    "testIdPattern": "[requestinterception-experimental.spec] request interception Page.setRequestInterception should load fonts if cache enabled",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["cdp", "chrome"],
-    "expectations": ["SKIP"],
-    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
-  },
-  {
     "testIdPattern": "[requestinterception-experimental.spec] request interception Page.setRequestInterception should navigate to URL with hash and fire requests without hash",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["cdp", "chrome"],
@@ -2999,13 +3055,6 @@
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["SKIP"],
     "comment": "TODO: BiDi does not support custom errors - https://github.com/w3c/webdriver-bidi/issues/508"
-  },
-  {
-    "testIdPattern": "[requestinterception.spec] request interception Page.setRequestInterception should cache stylesheet if cache enabled",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Needs Firefox support for network events for cached stylesheets https://bugzilla.mozilla.org/show_bug.cgi?id=1879438"
   },
   {
     "testIdPattern": "[requestinterception.spec] request interception Page.setRequestInterception should navigate to URL with hash and fire requests without hash",
@@ -3034,13 +3083,6 @@
     "parameters": ["chrome", "webDriverBiDi"],
     "expectations": ["FAIL"],
     "comment": "CDP specific issue, maybe we can support it from BiDi+"
-  },
-  {
-    "testIdPattern": "[requestinterception.spec] request interception Request.continue should redirect in a way non-observable to page",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["FAIL"],
-    "comment": "Firefox needs support for the url parameter of continueRequest"
   },
   {
     "testIdPattern": "[requestinterception.spec] request interception Request.resourceType should work for document type",
@@ -3245,7 +3287,35 @@
     "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.tap should work if another touch is already active",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
     "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work when moving touches separately",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work with three touches",
+    "platforms": ["darwin", "linux", "win32"],
+    "parameters": ["firefox", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work with two touches",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
     "expectations": ["FAIL"],
@@ -3431,6 +3501,33 @@
     "parameters": ["cdp", "chrome", "chrome-headless-shell"],
     "expectations": ["SKIP"],
     "comment": "For some reason service_workers do not close in chrome-headless-shell"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should throw if no touch was started",
+    "platforms": ["linux"],
+    "parameters": ["cdp", "firefox", "headless"],
+    "expectations": ["PASS"]
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work with three touches",
+    "platforms": ["darwin"],
+    "parameters": ["cdp", "chrome", "headless"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work with three touches",
+    "platforms": ["darwin"],
+    "parameters": ["cdp", "chrome", "chrome-headless-shell"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
+  },
+  {
+    "testIdPattern": "[touchscreen.spec] Touchscreen Touchscreen.prototype.touchMove should work with three touches",
+    "platforms": ["darwin"],
+    "parameters": ["chrome", "headless", "webDriverBiDi"],
+    "expectations": ["FAIL"],
+    "comment": "TODO: add a comment explaining why this expectation is required (include links to issues)"
   },
   {
     "testIdPattern": "[worker.spec] Workers Page.workers",

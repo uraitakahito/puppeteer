@@ -295,7 +295,9 @@ Represents an HTTP request sent by a page.
 
 Whenever the page sends a request, such as for a network resource, the following events are emitted by Puppeteer's `page`:
 
-- `request`: emitted when the request is issued by the page. - `requestfinished` - emitted when the response body is downloaded and the request is complete.
+- `request`: emitted when the request is issued by the page.
+
+- `requestfinished` - emitted when the response body is downloaded and the request is complete.
 
 If request fails at some point, then instead of `requestfinished` event the `requestfailed` event is emitted.
 
@@ -523,6 +525,15 @@ Example operations are [page.waitForSelector](./puppeteer.page.waitforselector.m
 </td></tr>
 <tr><td>
 
+<span id="toucherror">[TouchError](./puppeteer.toucherror.md)</span>
+
+</td><td>
+
+TouchError is thrown when an attempt is made to move or end a touch that does not exist.
+
+</td></tr>
+<tr><td>
+
 <span id="touchscreen">[Touchscreen](./puppeteer.touchscreen.md)</span>
 
 </td><td>
@@ -656,6 +667,13 @@ Description
 </td></tr>
 <tr><td>
 
+<span id="convertcookiespartitionkeyfrompuppeteertocdp">[convertCookiesPartitionKeyFromPuppeteerToCdp(partitionKey)](./puppeteer.convertcookiespartitionkeyfrompuppeteertocdp.md)</span>
+
+</td><td>
+
+</td></tr>
+<tr><td>
+
 <span id="defaultargs">[defaultArgs(options)](./puppeteer.defaultargs.md)</span>
 
 </td><td>
@@ -725,15 +743,6 @@ Description
 </td></tr>
 <tr><td>
 
-<span id="browserconnectoptions">[BrowserConnectOptions](./puppeteer.browserconnectoptions.md)</span>
-
-</td><td>
-
-Generic browser options that can be passed when launching any browser or when connecting to an existing browser instance.
-
-</td></tr>
-<tr><td>
-
 <span id="browsercontextevents">[BrowserContextEvents](./puppeteer.browsercontextevents.md)</span>
 
 </td><td>
@@ -751,15 +760,6 @@ Generic browser options that can be passed when launching any browser or when co
 <span id="browserevents">[BrowserEvents](./puppeteer.browserevents.md)</span>
 
 </td><td>
-
-</td></tr>
-<tr><td>
-
-<span id="browserlaunchargumentoptions">[BrowserLaunchArgumentOptions](./puppeteer.browserlaunchargumentoptions.md)</span>
-
-</td><td>
-
-Launcher options that only apply to Chrome.
 
 </td></tr>
 <tr><td>
@@ -828,6 +828,8 @@ See individual properties for more information.
 
 </td><td>
 
+Generic browser options that can be passed when launching any browser or when connecting to an existing browser instance.
+
 </td></tr>
 <tr><td>
 
@@ -854,11 +856,29 @@ Represents a cookie object.
 </td></tr>
 <tr><td>
 
+<span id="cookiedata">[CookieData](./puppeteer.cookiedata.md)</span>
+
+</td><td>
+
+Cookie parameter object used to set cookies in the browser-level cookies API.
+
+</td></tr>
+<tr><td>
+
 <span id="cookieparam">[CookieParam](./puppeteer.cookieparam.md)</span>
 
 </td><td>
 
-Cookie parameter object
+Cookie parameter object used to set cookies in the page-level cookies API.
+
+</td></tr>
+<tr><td>
+
+<span id="cookiepartitionkey">[CookiePartitionKey](./puppeteer.cookiepartitionkey.md)</span>
+
+</td><td>
+
+Represents a cookie partition key in Chrome.
 
 </td></tr>
 <tr><td>
@@ -912,6 +932,13 @@ Set of configurable options for CSS coverage.
 <tr><td>
 
 <span id="device">[Device](./puppeteer.device.md)</span>
+
+</td><td>
+
+</td></tr>
+<tr><td>
+
+<span id="downloadbehavior">[DownloadBehavior](./puppeteer.downloadbehavior.md)</span>
 
 </td><td>
 
@@ -1149,13 +1176,6 @@ Valid options to configure PDF generation via [Page.pdf()](./puppeteer.page.pdf.
 </td></tr>
 <tr><td>
 
-<span id="puppeteerlaunchoptions">[PuppeteerLaunchOptions](./puppeteer.puppeteerlaunchoptions.md)</span>
-
-</td><td>
-
-</td></tr>
-<tr><td>
-
 <span id="queryoptions">[QueryOptions](./puppeteer.queryoptions.md)</span>
 
 </td><td>
@@ -1223,6 +1243,15 @@ Represents a Node and the properties of it that are relevant to Accessibility.
 </td><td>
 
 WebDriver BiDi capabilities that are not set by Puppeteer itself.
+
+</td></tr>
+<tr><td>
+
+<span id="touchhandle">[TouchHandle](./puppeteer.touchhandle.md)</span>
+
+</td><td>
+
+The TouchHandle interface exposes methods to manipulate touches that have been started
 
 </td></tr>
 <tr><td>
@@ -1402,6 +1431,28 @@ Description
 </td></tr>
 <tr><td>
 
+<span id="browserconnectoptions">[BrowserConnectOptions](./puppeteer.browserconnectoptions.md)</span>
+
+</td><td>
+
+**Deprecated:**
+
+Use [ConnectOptions](./puppeteer.connectoptions.md).
+
+</td></tr>
+<tr><td>
+
+<span id="browserlaunchargumentoptions">[BrowserLaunchArgumentOptions](./puppeteer.browserlaunchargumentoptions.md)</span>
+
+</td><td>
+
+**Deprecated:**
+
+Use [LaunchOptions](./puppeteer.launchoptions.md).
+
+</td></tr>
+<tr><td>
+
 <span id="cdpevents">[CDPEvents](./puppeteer.cdpevents.md)</span>
 
 </td><td>
@@ -1448,6 +1499,13 @@ Represents the cookie's 'SameSite' status: https://tools.ietf.org/html/draft-wes
 </td><td>
 
 Represents the source scheme of the origin that originally set the cookie. A value of "Unset" allows protocol clients to emulate legacy cookie scope for the scheme. This is a temporary ability and it will be removed in the future.
+
+</td></tr>
+<tr><td>
+
+<span id="downloadpolicy">[DownloadPolicy](./puppeteer.downloadpolicy.md)</span>
+
+</td><td>
 
 </td></tr>
 <tr><td>
@@ -1665,7 +1723,9 @@ The sizes of each format are as follows:
 
 </td><td>
 
-Utility type exposed to enable users to define options that can be passed to `puppeteer.launch` without having to list the set of all types.
+**Deprecated:**
+
+Use [LaunchOptions](./puppeteer.launchoptions.md).
 
 </td></tr>
 <tr><td>

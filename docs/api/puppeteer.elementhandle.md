@@ -172,6 +172,17 @@ await name.autofill({
 </td></tr>
 <tr><td>
 
+<span id="backendnodeid">[backendNodeId()](./puppeteer.elementhandle.backendnodeid.md)</span>
+
+</td><td>
+
+</td><td>
+
+When connected using Chrome DevTools Protocol, it returns a DOM.BackendNodeId for the element.
+
+</td></tr>
+<tr><td>
+
 <span id="boundingbox">[boundingBox()](./puppeteer.elementhandle.boundingbox.md)</span>
 
 </td><td>
@@ -479,11 +490,13 @@ Converts the current handle to the given element type.
 </td></tr>
 <tr><td>
 
-<span id="touchmove">[touchMove(this)](./puppeteer.elementhandle.touchmove.md)</span>
+<span id="touchmove">[touchMove(this, touch)](./puppeteer.elementhandle.touchmove.md)</span>
 
 </td><td>
 
 </td><td>
+
+This method scrolls the element into view if needed, and then moves the touch to the center of the element.
 
 </td></tr>
 <tr><td>
@@ -493,6 +506,8 @@ Converts the current handle to the given element type.
 </td><td>
 
 </td><td>
+
+This method scrolls the element into view if needed, and then starts a touch in the center of the element.
 
 </td></tr>
 <tr><td>

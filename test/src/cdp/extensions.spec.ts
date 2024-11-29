@@ -7,7 +7,7 @@
 import path from 'path';
 
 import expect from 'expect';
-import type {PuppeteerLaunchOptions} from 'puppeteer-core/internal/node/PuppeteerNode.js';
+import type {LaunchOptions} from 'puppeteer-core/internal/node/LaunchOptions.js';
 
 import {getTestState, launch} from '../mocha-utils.js';
 
@@ -16,7 +16,7 @@ const extensionPath = path.join(
   '..',
   '..',
   'assets',
-  'simple-extension'
+  'simple-extension',
 );
 const serviceWorkerExtensionPath = path.join(
   __dirname,
@@ -24,7 +24,7 @@ const serviceWorkerExtensionPath = path.join(
   '..',
   'assets',
   'serviceworkers',
-  'extension'
+  'extension',
 );
 
 describe('extensions', function () {
@@ -33,9 +33,7 @@ describe('extensions', function () {
    */
   this.timeout(20_000);
 
-  let extensionOptions: PuppeteerLaunchOptions & {
-    args: string[];
-  };
+  let extensionOptions: LaunchOptions;
   const browsers: Array<() => Promise<void>> = [];
 
   beforeEach(async () => {
@@ -52,7 +50,7 @@ describe('extensions', function () {
   });
 
   async function launchBrowser(options: typeof extensionOptions) {
-    const {browser, close} = await launch(options, {createContext: false});
+    const {browser, close} = await launch(options);
     browsers.push(close);
     return browser;
   }
@@ -62,7 +60,7 @@ describe('extensions', function () {
       browsers.map((close, index) => {
         delete browsers[index];
         return close();
-      })
+      }),
     );
   });
 
@@ -72,7 +70,7 @@ describe('extensions', function () {
     const backgroundPageTarget = await browserWithExtension.waitForTarget(
       target => {
         return target.type() === 'background_page';
-      }
+      },
     );
     await page.close();
     await browserWithExtension.close();
@@ -90,7 +88,7 @@ describe('extensions', function () {
     const serviceWorkerTarget = await browserWithExtension.waitForTarget(
       target => {
         return target.type() === 'service_worker';
-      }
+      },
     );
     await page.close();
     await browserWithExtension.close();
@@ -102,18 +100,18 @@ describe('extensions', function () {
     const backgroundPageTarget = await browserWithExtension.waitForTarget(
       target => {
         return target.type() === 'background_page';
-      }
+      },
     );
     const page = (await backgroundPageTarget.page())!;
     expect(
       await page.evaluate(() => {
         return 2 * 3;
-      })
+      }),
     ).toBe(6);
     expect(
       await page.evaluate(() => {
         return (globalThis as any).MAGIC;
-      })
+      }),
     ).toBe(42);
     await browserWithExtension.close();
   });

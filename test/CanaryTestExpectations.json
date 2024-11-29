@@ -1,44 +1,26 @@
 [
   {
-    "testIdPattern": "[requestinterception.spec] request interception Page.setRequestInterception should cache stylesheet if cache enabled",
+    "testIdPattern": "[browsercontext-cookies.spec] BrowserContext cookies BrowserContext.setCookie should set cookie with a partition key",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
+    "expectations": ["PASS"]
   },
   {
-    "testIdPattern": "[frame.spec] Frame specs Frame Management should support lazy frames",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
+    "testIdPattern": "[launcher.spec] Launcher specs Puppeteer Puppeteer.launch userDataDir option should restore cookies",
+    "platforms": ["darwin"],
+    "parameters": ["cdp", "chrome-headless-shell"],
+    "expectations": ["PASS"]
   },
   {
-    "testIdPattern": "[oopif.spec] OOPIF should support lazy OOP frames",
+    "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Request.continue should redirect in a way non-observable to page",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
+    "expectations": ["PASS"]
   },
   {
-    "testIdPattern": "[requestinterception-experimental.spec] cooperative request interception Page.setRequestInterception should cache stylesheet if cache enabled",
+    "testIdPattern": "[requestinterception.spec] request interception Request.continue should redirect in a way non-observable to page",
     "platforms": ["darwin", "linux", "win32"],
     "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
-  },
-  {
-    "testIdPattern": "[network.spec] network Response.fromCache should work for stylesheet",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
-  },
-  {
-    "testIdPattern": "[network.spec] network Network Events Page.Events.RequestServedFromCache for stylesheet",
-    "platforms": ["darwin", "linux", "win32"],
-    "parameters": ["firefox", "webDriverBiDi"],
-    "expectations": ["PASS"],
-    "comment": "Works in Nightly"
+    "expectations": ["PASS"]
   }
 ]
